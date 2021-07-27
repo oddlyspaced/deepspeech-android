@@ -11,10 +11,6 @@ import java.nio.ByteOrder
 
 class MainActivity : AppCompatActivity() {
 
-    private companion object {
-        const val BEAM_WIDTH = 50L
-    }
-
     private lateinit var deepspeech: DeepSpeechModel
 
     private val modelPath by lazy { File(applicationContext.externalCacheDir, "deepspeech.tflite").path }
@@ -30,9 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun newModel(tfliteModelPath: String) {
         log("Creating model...")
-        deepspeech = DeepSpeechModel(tfliteModelPath).apply {
-            setBeamWidth(BEAM_WIDTH)
-        }
+        deepspeech = DeepSpeechModel(tfliteModelPath)
         log("Model creation Done")
     }
 
