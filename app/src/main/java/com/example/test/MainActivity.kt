@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     private fun doInference(audioFilePath: String) {
         log("Starting inference...")
         try {
+            // TODO : Assert variables
             val wave = RandomAccessFile(audioFilePath, "r")
             wave.seek(20)
             val audioFormat = CharOperations.readLEChar(wave)
